@@ -15,29 +15,36 @@
 </head>
 <body class="bg-secondary-subtle">
     <div class="container mt-5 p-5 ">
-      <div class="container-bottom">
-        <a class="btn btn-danger btn-lg m-2" href="../index.php"><i class="fa-solid fa-arrow-left"></i></a>
-      </div>
-    <div class="card" style="width: 18rem;">
-  <div class="card-body">
-    <h5 class="card-title">Nombre del salon FIEL-AUL29</h5>
-    <h6 class="card-subtitle mb-2 text-body-secondary">Información</h6>
-    <p class="card-text">Ventiladores</p>
-    <p class="card-text">Aires Acondicionados</p>
-    <p class="card-text">Proyector</p>
-    <p class="card-text">#Sillas</p>
-    <p class="card-text">Escritorio</p>
-    <p class="card-text">Luces</p>
-    <p class="card-text">Pantallas</p>
-    <p class="card-text">Pintarron</p>
-    <p class="card-text">Piso</p>
-    <p class="card-text">Puertas</p>
-    <p class="card-text">Repetidor WIFI</p>
+        <div class="container-bottom">
+          <a class="btn btn-danger btn-lg m-2" href="../index.php"><i class="fa-solid fa-arrow-left"></i></a>
+        </div>
+        <?php 
+        include "Conexion.php";
+       // $sql = "SELECT * FROM articulos INNER JOIN salones ON articulos.id_salon = salones.id_salon";
+        $sql = "SELECT * FROM salones";
 
-    <a href="#" class="card-link">Editar</a>
-    <a href="#" class="card-link">Eliminar</a>
-  </div>
-</div> 
+        $result = $conexion->query($sql);
+        ?>
+      <div class="card" style="width: 18rem;">
+          <div class="card-body">
+            <?php 
+            while ($datos = $result->fetch_object()){ ?>
+            <h5 class="card-title"><strong>Salon <?=$datos->id_salon?></strong></h5>
+            <h6 class="card-subtitle mb-2 text-body-secondary">Información</h6>
+            <p class="card-text"><Strong>Ventiladores: </Strong><?=$datos->ventiladores?></p>
+            <p class="card-text"><strong>#Sillas zurdas:</strong> <?=$datos->sillas_zurdas?></p>
+            <p class="card-text"><Strong>#Sillas:</Strong> <?=$datos->sillas?></p>
+            <p class="card-text"><Strong>Escritorio:</Strong> <?=$datos->escritorio?></p>
+            <p class="card-text"><Strong>Luces:</Strong> <?=$datos->luces?></p>
+            <p class="card-text"><Strong>Pantallas: </Strong> <?=$datos->pantalla?></p>
+            <p class="card-text"><Strong>Piso:</Strong> <?=$datos->piso?></p>
+            <p class="card-text"><Strong>Puertas: </Strong> <?=$datos->puerta?></p>
+            <p class="card-text"><Strong>Repetidor WIFI:</Strong> <?=$datos->repetidor?></p>
+            <?php } ?>
+            <a href="#" class="bottom ">Editar</a>
+            <a href="#" class="card-link">Eliminar</a>
+          </div>
+      </div> 
     </div>
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"

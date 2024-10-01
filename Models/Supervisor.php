@@ -23,9 +23,12 @@
       <H2 class="p-3">FORMULARIO DE INVENTARIO DE SALONES</H2>
       <form method="POST" class="bg-white p-4 border border-success rounded">
         <div class="row mb-3">
+          <div class="col-sm-2 input-group ">
           <label class="col-sm-2 col-form-label">Salon</label>
-          <div class="col-sm-10 ">
-            <input type="text" name="Salon" class="form-control " />
+            <div class="input-group-prepend">
+              <span class="input-group-text">FIEL-AUL</span>
+            </div>
+            <input type="number" name="NumeroSalon" class="form-control " min="1" step="1" required/>
           </div>
         </div>
         <div class="row mb-3">
@@ -41,10 +44,16 @@
           </div>
         </div>
         <div class="row mb-3">
+          <label class="col-sm-2 col-form-label">Sillas zurdas</label>
+          <div class="col-sm-10">
+            <input type="number" name="Zurdas" class="form-control" />
+          </div>
+        </div>
+        <div class="row mb-3">
           <label class="col-sm-2 col-form-label">Escritorio</label>
           <div class="col-sm-8">
             <select class="form-select" id="validationDefault04" name="escritorio" required>
-              <option selected disabled value="">Selecciona...</option>
+              <option selected disabled value="">Seleccionar...</option>
               <option value="SI">SI</option>
               <option value="MALO">MALO</option>
               <option value="ROTO">ROTO</option>
@@ -67,7 +76,7 @@
           <label class="col-sm-2 col-form-label">Piso</label>
           <div class="col-sm-8">
             <select class="form-select" id="piso" name="piso" required>
-              <option selected disabled value="">Selecciona...</option>
+              <option selected disabled value="">Seleccionar...</option>
               <option value="BIEN">BIEN</option>
               <option value="LEVANTADO">LEVANTADO</option>
               <option value="ROTO">ROTO</option>
@@ -79,7 +88,7 @@
           <label class="col-sm-2 col-form-label">Puerta</label>
           <div class="col-sm-8">
             <select class="form-select" id="puerta" name="puerta" required>
-              <option selected disabled value="">Selecciona...</option>
+              <option selected disabled value="">Seleccionar...</option>
               <option value="ROTO">ROTO</option>
               <option value="NUEVO">NUEVO</option>
             </select>
@@ -90,7 +99,7 @@
           <label class="col-sm-2 col-form-label">Repetidor</label>
           <div class="col-sm-8">
             <select class="form-select" id="repetidor" name="repetidor" required>
-              <option selected disabled value="">Selecciona...</option>
+              <option selected disabled value="">Seleccionar...</option>
               <option value="SI">SI</option>
               <option value="NO">NO</option>
             </select>
